@@ -1,0 +1,11 @@
+# Django project gitignore file
+# If sqllite will be used then sqllite database needs to be ignored as well
+
+# Includes secretkey and database user password (Must not be disclosed)
+settings.py
+
+# Includes settings.py's cache which must not be disclosed
+__pycache__
+
+# No need to add json files
+*.json

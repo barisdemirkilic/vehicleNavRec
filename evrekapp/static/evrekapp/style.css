@@ -1,0 +1,25 @@
+body {
+  background-color: rgb(30, 30, 40);
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+div {
+  margin: 10px 10px 10px 10px;
+}
+
+input[type=submit] {
+  cursor: pointer;
+}
+
+.floatRight {
+  float: right;
+}
+
+.formDiv {
+  width: 410px;
+  overflow: hidden;
+}

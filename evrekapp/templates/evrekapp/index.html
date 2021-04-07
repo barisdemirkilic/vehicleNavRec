@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'evrekapp/style.css' %}">
+    <meta charset="utf-8">
+    <title>Evreka HomePage</title>
+  </head>
+  <body>
+    <h1>Evreka assigment</h1>
+    <div class="formDiv">
+      <form action="{% url 'evrekapp:addRandomData' %}" method="post">
+        {% csrf_token %}
+        <div>
+          <label for="vehicleCount">Vehicle Count:</label>
+          <input type="number" name="vehicleCount" id="vehicleCount" min="1" value="1" class="floatRight">
+        </div>
+        <div>
+          <label for="navRecCount">Navigation Record Count:</label>
+          <input type="number" name="navRecCount" id="navRecCount" min="0" value="0" class="floatRight">
+        </div>
+        <div>
+          <input type="submit" value="Add Random Data" class="floatRight">
+        </div>
+      </form>
+    </div>
+    <div class="formDiv">
+      <form action="{% url 'evrekapp:addCustomVehicleData' %}" method="post">
+        {% csrf_token %}
+        <div>
+          <label for="plate">Vehicle Plate:</label>
+          <input type="text" name="plate" id="plate" placeholder="01 AA 001" class="floatRight">
+        </div>
+        <div>
+          <input type="submit" value="Add Vehicle" class="floatRight">
+        </div>
+      </form>
+    </div>
+    <div class="formDiv">
+      <form action="{% url 'evrekapp:addCustomNavRecData' %}" method="post">
+        {% csrf_token %}
+        <div>
+          <label for="plateNav">Vehicle Plate:</label>
+          <input type="text" name="plateNav" id="plateNav" placeholder="01 AA 001" class="floatRight">
+        </div>
+        <div>
+          <label for="latitude">Latitude:</label>
+          <input type="number" name="latitude" id="latitude" step="0.5" min="-90" max="90" value="0" class="floatRight">
+        </div>
+        <div>
+          <label for="latitude">Longitude:</label>
+          <input type="number" name="longitude" id="longitude" step="0.5" min="-180" max="180" value="0" class="floatRight">
+        </div>
+        <div>
+          <label for="datetime">Navigation Record Time:</label>
+          <input type="datetime-local" name="datetime" id="datetime" class="floatRight">
+        </div>
+        <div>
+          <input type="submit" value="Add Navigation Record" class="floatRight">
+        </div>
+      </form>
+    </div>
+    <div>
+      <form action="{% url 'evrekapp:getLastPointsPerVehicle' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Get Last Points">
+      </form>
+    </div>
+    <div>
+      <form action="{% url 'evrekapp:clearDatabase' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Clear Database">
+      </form>
+    </div>
+  </body>
+</html>
