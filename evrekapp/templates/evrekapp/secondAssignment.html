@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'evrekapp/style.css' %}">
+    <meta charset="utf-8">
+    <title>Second Assignment</title>
+  </head>
+  <body>
+    <h1>Second Assignment</h1>
+    <a href="{% url 'evrekapp:index' %}">Go back to assignments</a>
+    <div class="formDiv">
+      <form action="{% url 'evrekapp:addSecondRandomData' %}" method="post">
+        {% csrf_token %}
+        <div>
+          <label for="binCount">Bin Count:</label>
+          <input type="number" name="binCount" id="binCount" min="1" value="1" required class="floatRight">
+        </div>
+        <div>
+          <label for="operationCount">Operation Count:</label>
+          <input type="number" name="operationCount" id="operationCount" min="1" value="1" required class="floatRight">
+        </div>
+        <div>
+          <label for="binOperationCount">Bin-Operation Count:</label>
+          <input type="number" name="binOperationCount" id="binOperationCount" min="0" value="0" required class="floatRight">
+        </div>
+        <div>
+          <input type="submit" value="Add Random Data" class="floatRight">
+        </div>
+      </form>
+    </div>
+    <div class="formDiv">
+      <form action="{% url 'evrekapp:addCustomBinData' %}" method="post">
+        {% csrf_token %}
+        <div>
+          <label for="binLatitude">Latitude:</label>
+          <input type="number" name="binLatitude" id="binLatitude" step="0.5" min="-90" max="90" value="0" required class="floatRight">
+        </div>
+        <div>
+          <label for="binLongitude">Longitude:</label>
+          <input type="number" name="binLongitude" id="binLongitude" step="0.5" min="-180" max="180" value="0" required class="floatRight">
+        </div>
+        <div>
+          <input type="submit" value="Add Bin" class="floatRight">
+        </div>
+      </form>
+    </div>
+    <div class="formDiv">
+      <form action="{% url 'evrekapp:addCustomOperationData' %}" method="post">
+        {% csrf_token %}
+        <div>
+          <label for="operationName">Operation Name:</label>
+          <input type="text" name="operationName" id="operationName" required class="floatRight">
+        </div>
+        <div>
+          <input type="submit" value="Add Operation" class="floatRight">
+        </div>
+      </form>
+    </div>
+    <div class="formDiv">
+      <form action="{% url 'evrekapp:addCustomBinOperationData' %}" method="post">
+        {% csrf_token %}
+        <div>
+          <label for="binID">Bin ID:</label>
+          <input type="number" name="binID" id="binID" min="1" required class="floatRight">
+        </div>
+        <div>
+          <label for="operationID">Operation ID:</label>
+          <input type="number" name="operationID" id="operationID" min="1" required class="floatRight">
+        </div>
+        <div>
+          <label for="collectionFrequency">Collection Frequency:</label>
+          <input type="number" name="collectionFrequency" id="collectionFrequency" min="0" required class="floatRight">
+        </div>
+        <div>
+          <label for="lastCollection">Last Collection Time:</label>
+          <input type="datetime-local" name="lastCollection" id="lastCollection" required class="floatRight">
+        </div>
+        <div>
+          <input type="submit" value="Add Bin-Operation" class="floatRight">
+        </div>
+      </form>
+    </div>
+    <div>
+      <form action="{% url 'evrekapp:getCollectionFrequency' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Get Collection Frequency">
+      </form>
+    </div>
+    <div>
+      <form action="{% url 'evrekapp:clearSecondDatabase' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Clear Database">
+      </form>
+    </div>
+  </body>
+</html>

@@ -11,6 +11,14 @@ div {
   margin: 10px 10px 10px 10px;
 }
 
+a {
+  color: white;
+}
+
+a:hover {
+  color: yellow;
+}
+
 input[type=submit] {
   cursor: pointer;
 }
